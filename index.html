@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Italiano – اردو | Guida Linguistica Agraria</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&family=Noto+Nastaliq+Urdu:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#faf7f0;
+  --cream2:#f0ebe0;
+  --green-dark:#1e4a12;
+  --green:#2e7a1b;
+  --green-mid:#4a8f36;
+  --green-light:#daebd4;
+  --terra:#b5622b;
+  --terra-light:#f5e8df;
+  --gold:#c9a84c;
+  --gold-light:#fdf3dc;
+  --ink:#1a1a14;
+  --ink2:#3d3d30;
+  --muted:#6b6b55;
+  --border:#d8d2c0;
+  --white:#ffffff;
+  --urdu-bg:#f0eef8;
+  --urdu-border:#8b7ec0;
+  --radius:10px;
+  --shadow:0 2px 12px rgba(30,74,18,.08);
+}
+body{background:var(--cream);color:var(--ink);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.7}
+.hero{background:linear-gradient(135deg,#1e4a12 0%,#2e5a14 60%,#3d7a20 100%);padding:3.5rem 1.5rem 3rem;text-align:center;position:relative;overflow:hidden}
+.hero-badge{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:.3rem 1rem;font-size:.8rem;color:rgba(255,255,255,.85);letter-spacing:.08em;text-transform:uppercase;margin-bottom:1.2rem}
+.hero h1{font-family:'Lora',serif;font-size:2.6rem;font-weight:700;color:#fff;margin-bottom:.5rem;line-height:1.2}
+.hero-urdu{font-family:'Noto Nastaliq Urdu',serif;font-size:2rem;color:rgba(255,255,255,.9);direction:rtl;display:block;margin-bottom:1.2rem;line-height:2}
+.hero-sub{font-size:1rem;color:rgba(255,255,255,.75);max-width:560px;margin:0 auto 1.5rem}
+.hero-sub-ur{font-family:'Noto Nastaliq Urdu',serif;direction:rtl;font-size:1rem;display:block;color:rgba(255,255,255,.7);margin-top:.4rem;line-height:2}
+.hero-tags{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center}
+.htag{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:.25rem .9rem;font-size:.82rem;color:rgba(255,255,255,.85)}
+.tabs-wrap{background:var(--white);border-bottom:2px solid var(--border);position:sticky;top:0;z-index:100}
+.tabs{display:flex;max-width:900px;margin:0 auto;padding:0 1rem}
+.tab-btn{padding:1rem 1.5rem;background:none;border:none;border-bottom:3px solid transparent;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:500;color:var(--muted);transition:.2s;margin-bottom:-2px}
+.tab-btn.active{color:var(--green-dark);border-bottom-color:var(--green)}
+.tab-btn:hover:not(.active){color:var(--ink2);border-bottom-color:var(--border)}
+.container{max-width:900px;margin:0 auto;padding:2rem 1.5rem}
+.section-title{font-family:'Lora',serif;font-size:1.6rem;color:var(--green-dark);margin-bottom:.25rem}
+.section-urdu{font-family:'Noto Nastaliq Urdu',serif;font-size:1.3rem;color:var(--urdu-border);direction:rtl;display:block;margin-bottom:1.5rem;line-height:2}
+.panel{display:none}
+.panel.active{display:block}
+.tense-grid{display:grid;gap:1.5rem}
+.tense-card{background:var(--white);border-radius:var(--radius);border:1px solid var(--border);box-shadow:var(--shadow);overflow:hidden}
+.tense-header{padding:1rem 1.25rem;display:flex;align-items:flex-start;justify-content:space-between;gap:.5rem}
+.tense-header.pr{background:linear-gradient(90deg,#e8f5e3,#f0faf0)}
+.tense-header.pp{background:linear-gradient(90deg,#e8f0f5,#f0f5fa)}
+.tense-header.imp{background:linear-gradient(90deg,#f5ede8,#faf3f0)}
+.tense-header.pr2{background:linear-gradient(90deg,#f5eee8,#faf5f0)}
+.tense-header.fut{background:linear-gradient(90deg,#ede8f5,#f5f0fa)}
+.tense-header.cond{background:linear-gradient(90deg,#e8eff5,#f0f5f5)}
+.tense-it{font-family:'Lora',serif;font-size:1.25rem;font-weight:700;color:var(--green-dark)}
+.tense-badge{font-size:.72rem;background:var(--green-light);color:var(--green-dark);border-radius:12px;padding:.2rem .7rem;white-space:nowrap;margin-top:.2rem;font-weight:500}
+.tense-ur{font-family:'Noto Nastaliq Urdu',serif;font-size:1.2rem;color:var(--urdu-border);direction:rtl;text-align:right;line-height:2}
+.tense-body{padding:1.25rem}
+.tense-rule{background:var(--cream2);border-left:3px solid var(--green);border-radius:0 6px 6px 0;padding:.6rem 1rem;font-size:.9rem;color:var(--ink2);margin-bottom:1rem}
+.tense-rule span{font-family:'Noto Nastaliq Urdu',serif;direction:rtl;font-size:1rem;display:block;text-align:right;color:var(--urdu-border);margin-top:.25rem;line-height:2}
+.conj-table{width:100%;border-collapse:collapse;font-size:.9rem;margin-bottom:1rem}
+.conj-table th{background:var(--green-light);color:var(--green-dark);font-weight:600;padding:.5rem .75rem;text-align:left;font-size:.8rem;text-transform:uppercase;letter-spacing:.05em}
+.conj-table td{padding:.5rem .75rem;border-bottom:1px solid var(--cream2);vertical-align:middle}
+.conj-table tr:last-child td{border-bottom:none}
+.conj-table tr:hover td{background:var(--cream)}
+.pron{color:var(--muted);font-size:.85rem}
+.it-form{color:var(--green-dark);font-weight:500}
+.ur-form{font-family:'Noto Nastaliq Urdu',serif;direction:rtl;text-align:right;font-size:1.1rem;color:var(--ink2);line-height:2}
+.examples-title{font-size:.8rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600;margin-bottom:.6rem;margin-top:1rem}
+.example-row{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-bottom:.5rem;align-items:start}
+.ex-it{background:var(--cream);border-radius:6px;padding:.5rem .8rem;font-size:.88rem;color:var(--ink2);border-left:2px solid var(--green-mid)}
+.ex-ur{background:var(--urdu-bg);border-radius:6px;padding:.5rem .8rem;font-family:'Noto Nastaliq Urdu',serif;direction:rtl;text-align:right;font-size:1.05rem;color:var(--ink);border-right:2px solid var(--urdu-border);line-height:2}
+.note-box{background:var(--gold-light);border:1px solid var(--gold);border-radius:6px;padding:.7rem 1rem;font-size:.85rem;color:#6b5a1a;margin-top:1rem}
+.note-box strong{color:#4a3d0f}
+.note-ur{font-family:'Noto Nastaliq Urdu',serif;direction:rtl;font-size:1rem;display:block;text-align:right;line-height:2;margin-top:.3rem}
+.gloss-controls{display:flex;flex-wrap:wrap;gap:.75rem;margin-bottom:1.5rem;align-items:center}
+.gloss-search{flex:1;min-width:200px;padding:.65rem 1rem;border:1.5px solid var(--border);border-radius:8px;font-family:'DM Sans',sans-serif;font-size:.95rem;background:var(--white);color:var(--ink);outline:none;transition:.2s}
+.gloss-search:focus{border-color:var(--green);box-shadow:0 0 0 3px var(--green-light)}
+.filter-btns{display:flex;flex-wrap:wrap;gap:.4rem}
+.filter-btn{padding:.35rem .85rem;border:1.5px solid var(--border);border-radius:20px;background:var(--white);color:var(--muted);font-size:.82rem;cursor:pointer;transition:.15s;font-family:'DM Sans',sans-serif;font-weight:500}
+.filter-btn.active,.filter-btn:hover{background:var(--green-dark);color:#fff;border-color:var(--green-dark)}
+.gloss-count{font-size:.85rem;color:var(--muted);margin-bottom:.75rem}
+.gloss-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1rem}
+.gloss-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1rem 1.1rem;box-shadow:var(--shadow);transition:.15s}
+.gloss-card:hover{border-color:var(--green-mid);transform:translateY(-2px);box-shadow:0 4px 16px rgba(30,74,18,.12)}
+.gloss-cat{font-size:.7rem;text-transform:uppercase;letter-spacing:.07em;font-weight:600;margin-bottom:.4rem}
+.cat-terra{color:#b5622b}.cat-green{color:#1e4a12}.cat-gold{color:#8b6a00}.cat-purple{color:#6a4a8b}.cat-blue{color:#2a5a8b}
+.gloss-it{font-family:'Lora',serif;font-size:1.1rem;font-weight:700;color:var(--green-dark);margin-bottom:.2rem}
+.gloss-pronun{font-size:.78rem;color:var(--muted);margin-bottom:.4rem;font-style:italic}
+.gloss-ur{font-family:'Noto Nastaliq Urdu',serif;direction:rtl;text-align:right;font-size:1.2rem;color:var(--ink);line-height:2;border-top:1px solid var(--cream2);padding-top:.5rem;margin-top:.4rem}
+.gloss-en{font-size:.8rem;color:var(--muted);margin-top:.25rem}
+.no-results{text-align:center;padding:3rem;color:var(--muted);font-size:1.05rem}
+footer{background:var(--green-dark);color:rgba(255,255,255,.65);text-align:center;padding:1.5rem;font-size:.82rem;margin-top:2rem}
+footer strong{color:rgba(255,255,255,.85)}
+@media(max-width:600px){
+  .hero h1{font-size:1.9rem}.hero-urdu{font-size:1.5rem}
+  .example-row{grid-template-columns:1fr}.gloss-grid{grid-template-columns:1fr 1fr}
+  .tense-header{flex-direction:column}.tab-btn{padding:.75rem .8rem;font-size:.9rem}
+}
+@media(max-width:400px){.gloss-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-badge">IIS Gregorio Mendel &mdash; Villa Cortese (MI)</div>
+  <h1>Impara l&rsquo;Italiano Agrario</h1>
+  <span class="hero-urdu">زراعت کی ایٹلین سیکھیں</span>
+  <p class="hero-sub">
+    Guida bilingue italiano&ndash;urdu per studenti dell&rsquo;istituto agrario professionale
+    <span class="hero-sub-ur">پیشہ ور زراعت دان طالب علم کے لیے دو زبانی رہنما</span>
+  </p>
+  <div class="hero-tags">
+    <span class="htag">&#9201; Grammatica italiana</span>
+    <span class="htag">&#127806; Lessico agrario</span>
+    <span class="htag">اردو &ndash; Italiano</span>
+  </div>
+</header>
+
+<nav class="tabs-wrap">
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showPanel('grammatica',this)">&#128214; Grammatica</button>
+    <button class="tab-btn" onclick="showPanel('glossario',this)">&#127807; Glossario Agrario</button>
+  </div>
+</nav>
+
+<div id="grammatica" class="panel active">
+<div class="container">
+  <h2 class="section-title">I Tempi Verbali Italiani</h2>
+  <span class="section-urdu">ایٹلین فعل کے زمانے</span>
+  <div class="tense-grid">
+
+    <!-- PRESENTE -->
+    <div class="tense-card">
+      <div class="tense-header pr">
+        <div><div class="tense-it">Presente Indicativo</div><div class="tense-badge">Azione presente / abituale</div></div>
+        <div class="tense-ur">حال &mdash; ابھی / ہمیشہ</div>
+      </div>
+      <div class="tense-body">
+        <div class="tense-rule">
+          <strong>Formazione:</strong> radice + desinenza (-are / -ere / -ire)
+          <span>کیسے بنائیں: فعل کی جڑ + علامت</span>
+        </div>
+        <table class="conj-table">
+          <thead><tr><th>Pronome</th><th>lavorare (کام کرنا)</th><th style="text-align:right">اردو</th></tr></thead>
+          <tbody>
+            <tr><td class="pron">io</td><td class="it-form">lavor<strong>o</strong></td><td class="ur-form">میں کام کرتا ہوں</td></tr>
+            <tr><td class="pron">tu</td><td class="it-form">lavor<strong>i</strong></td><td class="ur-form">تم کام کرتے ہو</td></tr>
+            <tr><td class="pron">lui/lei</td><td class="it-form">lavor<strong>a</strong></td><td class="ur-form">وہ کام کرتا ہے</td></tr>
+            <tr><td class="pron">noi</td><td class="it-form">lavor<strong>iamo</strong></td><td class="ur-form">ہم کام کرتے ہیں</td></tr>
+            <tr><td class="pron">voi</td><td class="it-form">lavor<strong>ate</strong></td><td class="ur-form">تم سب کام کرتے ہو</td></tr>
+            <tr><td class="pron">loro</td><td class="it-form">lavor<strong>ano</strong></td><td class="ur-form">وہ کام کرتے ہیں</td></tr>
+          </tbody>
+        </table>
+        <div class="examples-title">Esempi dal campo &mdash; مثالیں</div>
+        <div class="example-row"><div class="ex-it">Io semino il grano ogni primavera.</div><div class="ex-ur">میں ہر بہار گندم بوتا ہوں۔</div></div>
+        <div class="example-row"><div class="ex-it">Tu annaffi le piante con cura.</div><div class="ex-ur">تم پودوں کو احتیاط سے پانی دیتے ہو۔</div></div>
+        <div class="example-row"><div class="ex-it">Noi raccogliamo i frutti in autunno.</div><div class="ex-ur">ہم خزاں میں پھل توڑتے ہیں۔</div></div>
+        <div class="example-row"><div class="ex-it">Il trattore ara il terreno.</div><div class="ex-ur">ٹریکٹر زمین جوتتا ہے۔</div></div>
+      </div>
+    </div>
+
+    <!-- PASSATO PROSSIMO -->
+    <div class="tense-card">
+      <div class="tense-header pp">
+        <div><div class="tense-it">Passato Prossimo</div><div class="tense-badge">Azione passata &amp; recente</div></div>
+        <div class="tense-ur">ماضی قریب &mdash; حال ہی گزرا</div>
+      </div>
+      <div class="tense-body">
+        <div class="tense-rule">
+          <strong>Formazione:</strong> <em>avere</em> o <em>essere</em> (presente) + participio passato
+          <span>بنانے کا طریقہ: avere/essere (حاضر) + ماضی کی حالت</span>
+        </div>
+        <table class="conj-table">
+          <thead><tr><th>Pronome</th><th>seminare (بونا) &rarr; seminato</th><th style="text-align:right">اردو</th></tr></thead>
+          <tbody>
+            <tr><td class="pron">io</td><td class="it-form">ho semina<strong>to</strong></td><td class="ur-form">میں نے بویا</td></tr>
+            <tr><td class="pron">tu</td><td class="it-form">hai semina<strong>to</strong></td><td class="ur-form">تم نے بویا</td></tr>
+            <tr><td class="pron">lui/lei</td><td class="it-form">ha semina<strong>to</strong></td><td class="ur-form">اس نے بویا</td></tr>
+            <tr><td class="pron">noi</td><td class="it-form">abbiamo semina<strong>to</strong></td><td class="ur-form">ہم نے بویا</td></tr>
+            <tr><td class="pron">voi</td><td class="it-form">avete semina<strong>to</strong></td><td class="ur-form">تم سب نے بویا</td></tr>
+            <tr><td class="pron">loro</td><td class="it-form">hanno semina<strong>to</strong></td><td class="ur-form">انہوں نے بویا</td></tr>
+          </tbody>
+        </table>
+        <div class="examples-title">Esempi dal campo &mdash; مثالیں</div>
+        <div class="example-row"><div class="ex-it">Ho seminato il mais stamattina.</div><div class="ex-ur">میں نے آج صبح مکئی بوئی۔</div></div>
+        <div class="example-row"><div class="ex-it">Hai irrigato l&rsquo;orto ieri?</div><div class="ex-ur">کیا تم نے کل باغ کو پانی دیا؟</div></div>
+        <div class="example-row"><div class="ex-it">Abbiamo usato il fertilizzante biologico.</div><div class="ex-ur">ہم نے نامیاتی کھاد استعمال کی۔</div></div>
+        <div class="example-row"><div class="ex-it">Loro hanno raccolto le olive.</div><div class="ex-ur">انہوں نے زیتوں کو توڑا۔</div></div>
+        <div class="note-box">
+          <strong>Nota:</strong> con i verbi di movimento usa <em>essere</em> &rarr; <em>sono andato/a al campo</em>
+          <span class="note-ur">حرکت کے فعلوں کے ساتھ essere آتا ہے</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- IMPERFETTO -->
+    <div class="tense-card">
+      <div class="tense-header imp">
+        <div><div class="tense-it">Imperfetto Indicativo</div><div class="tense-badge">Abitudine nel passato</div></div>
+        <div class="tense-ur">ماضی استمراری &mdash; پرانی عادت</div>
+      </div>
+      <div class="tense-body">
+        <div class="tense-rule">
+          <strong>Formazione:</strong> radice + &ndash;avo / &ndash;evo / &ndash;ivo (e declinazioni)
+          <span>پرانی عادت یا جاری عمل ظاہر کرتا ہے</span>
+        </div>
+        <table class="conj-table">
+          <thead><tr><th>Pronome</th><th>arare (ہل چلانا) &rarr; imperfetto</th><th style="text-align:right">اردو</th></tr></thead>
+          <tbody>
+            <tr><td class="pron">io</td><td class="it-form">ar<strong>avo</strong></td><td class="ur-form">میں ہل چلاتا تھا</td></tr>
+            <tr><td class="pron">tu</td><td class="it-form">ar<strong>avi</strong></td><td class="ur-form">تم ہل چلاتے تھے</td></tr>
+            <tr><td class="pron">lui/lei</td><td class="it-form">ar<strong>ava</strong></td><td class="ur-form">وہ ہل چلاتا تھا</td></tr>
+            <tr><td class="pron">noi</td><td class="it-form">ar<strong>avamo</strong></td><td class="ur-form">ہم ہل چلاتے تھے</td></tr>
+            <tr><td class="pron">voi</td><td class="it-form">ar<strong>avate</strong></td><td class="ur-form">تم سب ہل چلاتے تھے</td></tr>
+            <tr><td class="pron">loro</td><td class="it-form">ar<strong>avano</strong></td><td class="ur-form">وہ ہل چلاتے تھے</td></tr>
+          </tbody>
+        </table>
+        <div class="examples-title">Esempi dal campo &mdash; مثالیں</div>
+        <div class="example-row"><div class="ex-it">Da bambino, lavoravo nei campi ogni estate.</div><div class="ex-ur">بچپن میں ہر گرمیوں کھیتوں میں کام کرتا تھا۔</div></div>
+        <div class="example-row"><div class="ex-it">Prima, si usava il concime naturale.</div><div class="ex-ur">پہلے قدرتی کھاد استعمال ہوتی تھی۔</div></div>
+        <div class="example-row"><div class="ex-it">Le pecore pascolavano nel prato.</div><div class="ex-ur">بھیڑیں میدان میں چرتی تھیں۔</div></div>
+      </div>
+    </div>
+
+    <!-- PASSATO REMOTO -->
+    <div class="tense-card">
+      <div class="tense-header pr2">
+        <div><div class="tense-it">Passato Remoto</div><div class="tense-badge">Passato lontano / letterario</div></div>
+        <div class="tense-ur">ماضی بعید &mdash; قدیم زمانہ</div>
+      </div>
+      <div class="tense-body">
+        <div class="tense-rule">
+          <strong>Formazione:</strong> radice + desinenze speciali (&ndash;ai / &ndash;asti / &ndash;&ograve; / &ndash;ammo / &ndash;aste / &ndash;arono)
+          <span>بہت پرانے واقعے &mdash; جنوبی ایٹلی میں زیادہ مستعمل</span>
+        </div>
+        <table class="conj-table">
+          <thead><tr><th>Pronome</th><th>piantare (پودا لگانا) &rarr; passato remoto</th><th style="text-align:right">اردو</th></tr></thead>
+          <tbody>
+            <tr><td class="pron">io</td><td class="it-form">piant<strong>ai</strong></td><td class="ur-form">میں نے لگایا</td></tr>
+            <tr><td class="pron">tu</td><td class="it-form">piant<strong>asti</strong></td><td class="ur-form">تم نے لگایا</td></tr>
+            <tr><td class="pron">lui/lei</td><td class="it-form">piant<strong>&ograve;</strong></td><td class="ur-form">اس نے لگایا</td></tr>
+            <tr><td class="pron">noi</td><td class="it-form">piant<strong>ammo</strong></td><td class="ur-form">ہم نے لگایا</td></tr>
+            <tr><td class="pron">voi</td><td class="it-form">piant<strong>aste</strong></td><td class="ur-form">تم سب نے لگایا</td></tr>
+            <tr><td class="pron">loro</td><td class="it-form">piant<strong>arono</strong></td><td class="ur-form">انہوں نے لگایا</td></tr>
+          </tbody>
+        </table>
+        <div class="examples-title">Esempi dal campo &mdash; مثالیں</div>
+        <div class="example-row"><div class="ex-it">I contadini piantarono i primi ulivi cento anni fa.</div><div class="ex-ur">کسانوں نے سو سال پہلے پہلے زیتوں کے درخت لگائے۔</div></div>
+        <div class="example-row"><div class="ex-it">L&rsquo;irrigazione trasform&ograve; il deserto in terra fertile.</div><div class="ex-ur">آب پاشی نے صحرا کو زرخیز زمین میں بدل دیا۔</div></div>
+        <div class="note-box">
+          <strong>Nota:</strong> al nord Italia si usa di pi&ugrave; il <em>passato prossimo</em>; al sud il <em>passato remoto</em>
+          <span class="note-ur">شمالی ایٹلی میں passato prossimo زیادہ رائج ہے</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FUTURO -->
+    <div class="tense-card">
+      <div class="tense-header fut">
+        <div><div class="tense-it">Futuro Semplice</div><div class="tense-badge">Azione futura / previsione</div></div>
+        <div class="tense-ur">مستقبل &mdash; آنے والی بات</div>
+      </div>
+      <div class="tense-body">
+        <div class="tense-rule">
+          <strong>Formazione:</strong> infinito (mod.) + &ndash;&ograve; / &ndash;ai / &ndash;&agrave; / &ndash;emo / &ndash;ete / &ndash;anno
+          <span>آنے والے کام یا ارادے کا اظہار</span>
+        </div>
+        <table class="conj-table">
+          <thead><tr><th>Pronome</th><th>raccogliere (توڑنا) &rarr; raccoglier&ndash;</th><th style="text-align:right">اردو</th></tr></thead>
+          <tbody>
+            <tr><td class="pron">io</td><td class="it-form">raccoglier<strong>&ograve;</strong></td><td class="ur-form">میں توڑوں گا</td></tr>
+            <tr><td class="pron">tu</td><td class="it-form">raccoglier<strong>ai</strong></td><td class="ur-form">تم توڑو گے</td></tr>
+            <tr><td class="pron">lui/lei</td><td class="it-form">raccoglier<strong>&agrave;</strong></td><td class="ur-form">وہ توڑے گا</td></tr>
+            <tr><td class="pron">noi</td><td class="it-form">raccoglier<strong>emo</strong></td><td class="ur-form">ہم توڑیں گے</td></tr>
+            <tr><td class="pron">voi</td><td class="it-form">raccoglier<strong>ete</strong></td><td class="ur-form">تم سب توڑو گے</td></tr>
+            <tr><td class="pron">loro</td><td class="it-form">raccoglier<strong>anno</strong></td><td class="ur-form">وہ توڑیں گے</td></tr>
+          </tbody>
+        </table>
+        <div class="examples-title">Esempi dal campo &mdash; مثالیں</div>
+        <div class="example-row"><div class="ex-it">L&rsquo;anno prossimo semer&ograve; pi&ugrave; ortaggi.</div><div class="ex-ur">اگلے سال میں زیادہ سبزیاں بوؤں گا۔</div></div>
+        <div class="example-row"><div class="ex-it">In estate, utilizzeremo la nuova mietitrebbia.</div><div class="ex-ur">گرمیوں میں ہم نئی کمبائن استعمال کریں گے۔</div></div>
+        <div class="example-row"><div class="ex-it">Il raccolto sar&agrave; abbondante quest&rsquo;anno.</div><div class="ex-ur">اس سال فصل بہت اچھی ہوگی۔</div></div>
+      </div>
+    </div>
+
+    <!-- CONDIZIONALE -->
+    <div class="tense-card">
+      <div class="tense-header cond">
+        <div><div class="tense-it">Condizionale Presente</div><div class="tense-badge">Desiderio / ipotesi</div></div>
+        <div class="tense-ur">شرطیہ &mdash; خواہش / فرض</div>
+      </div>
+      <div class="tense-body">
+        <div class="tense-rule">
+          <strong>Formazione:</strong> infinito (mod.) + &ndash;ei / &ndash;esti / &ndash;ebbe / &ndash;emmo / &ndash;este / &ndash;ebbero
+          <span>خواہش، سفارش، یا فرضی حالت ظاہر کرتا ہے</span>
+        </div>
+        <table class="conj-table">
+          <thead><tr><th>Pronome</th><th>usare (استعمال کرنا) &rarr; user&ndash;</th><th style="text-align:right">اردو</th></tr></thead>
+          <tbody>
+            <tr><td class="pron">io</td><td class="it-form">user<strong>ei</strong></td><td class="ur-form">میں استعمال کرتا</td></tr>
+            <tr><td class="pron">tu</td><td class="it-form">user<strong>esti</strong></td><td class="ur-form">تم استعمال کرتے</td></tr>
+            <tr><td class="pron">lui/lei</td><td class="it-form">user<strong>ebbe</strong></td><td class="ur-form">وہ استعمال کرتا</td></tr>
+            <tr><td class="pron">noi</td><td class="it-form">user<strong>emmo</strong></td><td class="ur-form">ہم استعمال کرتے</td></tr>
+            <tr><td class="pron">voi</td><td class="it-form">user<strong>este</strong></td><td class="ur-form">تم سب استعمال کرتے</td></tr>
+            <tr><td class="pron">loro</td><td class="it-form">user<strong>ebbero</strong></td><td class="ur-form">وہ استعمال کرتے</td></tr>
+          </tbody>
+        </table>
+        <div class="examples-title">Esempi dal campo &mdash; مثالیں</div>
+        <div class="example-row"><div class="ex-it">Vorrei imparare a guidare il trattore.</div><div class="ex-ur">میں ٹریکٹر چلانا سیکھنا چاہتا ہوں۔</div></div>
+        <div class="example-row"><div class="ex-it">Con pi&ugrave; acqua, potremmo ottenere un raccolto migliore.</div><div class="ex-ur">زیادہ پانی سے بہتر فصل ہو سکتی ہے۔</div></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<div id="glossario" class="panel">
+<div class="container">
+  <h2 class="section-title">Glossario Agrario</h2>
+  <span class="section-urdu">زراعتی اصطلاحات ایٹلین اردو</span>
+  <div class="gloss-controls">
+    <input class="gloss-search" type="search" id="glossSearch" placeholder="Cerca termine / اصطلاح تلاش کریں..." oninput="filterGloss()">
+    <div class="filter-btns">
+      <button class="filter-btn active" onclick="setFilter('',this)">Tutti</button>
+      <button class="filter-btn" onclick="setFilter('terra',this)">Terra &amp; Coltura</button>
+      <button class="filter-btn" onclick="setFilter('macchine',this)">Macchine</button>
+      <button class="filter-btn" onclick="setFilter('piante',this)">Piante &amp; Frutti</button>
+      <button class="filter-btn" onclick="setFilter('allevamento',this)">Allevamento</button>
+      <button class="filter-btn" onclick="setFilter('stagioni',this)">Stagioni &amp; Clima</button>
+      <button class="filter-btn" onclick="setFilter('ambiente',this)">&#127758; Ambiente</button>
+    </div>
+  </div>
+  <div class="gloss-count" id="glossCount"></div>
+  <div class="gloss-grid" id="glossGrid"></div>
+</div>
+</div>
+
+<footer>
+  <strong>IIS Gregorio Mendel</strong> &mdash; Villa Cortese (MI) &mdash; Istituto Professionale Agrario &nbsp;|&nbsp;
+  Guida bilingue italiano&ndash;urdu &nbsp;ایٹلینی اردو رہنما
+</footer>
+
+<script>
+function showPanel(id,btn){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+const glossData=[
+  {it:'agricoltura',ur:'زراعت',en:'agriculture',p:'a-gri-kol-TU-ra',cat:'terra'},
+  {it:'campo / terreno',ur:'کھیت / زمین',en:'field / land',p:'KAM-po',cat:'terra'},
+  {it:'raccolto',ur:'فصل',en:'harvest / crop',p:'rak-KOL-to',cat:'terra'},
+  {it:'semina',ur:'بوائی',en:'sowing',p:'SE-mi-na',cat:'terra'},
+  {it:'seme',ur:'بیج',en:'seed',p:'SE-me',cat:'terra'},
+  {it:'irrigazione',ur:'آب پاشی',en:'irrigation',p:'ir-ri-ga-TSYO-ne',cat:'terra'},
+  {it:'fertilizzante / concime',ur:'کھاد',en:'fertilizer',p:'fer-ti-lid-DZAN-te',cat:'terra'},
+  {it:'pesticida',ur:'کیڑے مار دوا',en:'pesticide',p:'pes-ti-CHI-da',cat:'terra'},
+  {it:'erbicida',ur:'جڑی بوٹی مار دوا',en:'herbicide',p:'er-bi-CHI-da',cat:'terra'},
+  {it:'compost',ur:'کمپوسٹ',en:'compost',p:'KOM-post',cat:'terra'},
+  {it:'suolo',ur:'مٹی',en:'soil',p:'SWO-lo',cat:'terra'},
+  {it:'zappatura',ur:'گوڈائی',en:'hoeing',p:'tsap-pa-TU-ra',cat:'terra'},
+  {it:'aratura',ur:'ہل چلانا',en:'plowing',p:'a-ra-TU-ra',cat:'terra'},
+  {it:'potatura',ur:'کٹائی',en:'pruning',p:'po-ta-TU-ra',cat:'terra'},
+  {it:'innesto',ur:'پیوند',en:'grafting',p:'in-NES-to',cat:'terra'},
+  {it:'biologico',ur:'نامیاتی',en:'organic',p:'bio-LO-ji-ko',cat:'terra'},
+  {it:'rotazione delle colture',ur:'فصلوں کا ردوبدل',en:'crop rotation',p:'ro-ta-TSYO-ne',cat:'terra'},
+  {it:'drenaggio',ur:'نکاسی آب',en:'drainage',p:'dre-NA-djo',cat:'terra'},
+  {it:'serra',ur:'گرین ہاؤس',en:'greenhouse',p:'SER-ra',cat:'terra'},
+  {it:'orto',ur:'سبزی کا باغ',en:'vegetable garden',p:'OR-to',cat:'terra'},
+  {it:'vigneto',ur:'انگور کا باغ',en:'vineyard',p:'vi-NYE-to',cat:'terra'},
+  {it:'frutteto',ur:'پھلوں کا باغ',en:'orchard',p:'frut-TE-to',cat:'terra'},
+  {it:'trattore',ur:'ٹریکٹر',en:'tractor',p:'trat-TO-re',cat:'macchine'},
+  {it:'aratro',ur:'ہل',en:'plow / plough',p:'a-RA-tro',cat:'macchine'},
+  {it:'mietitrebbia',ur:'کمبائن ہارویسٹر',en:'combine harvester',p:'mye-ti-TREB-bya',cat:'macchine'},
+  {it:'pompa (dell’acqua)',ur:'پمپ',en:'water pump',p:'POM-pa',cat:'macchine'},
+  {it:'solco',ur:'نالی',en:'furrow',p:'SOL-ko',cat:'macchine'},
+  {it:'pianta',ur:'پودا',en:'plant',p:'PYAN-ta',cat:'piante'},
+  {it:'albero',ur:'درخت',en:'tree',p:'AL-be-ro',cat:'piante'},
+  {it:'radice',ur:'جڑ',en:'root',p:'ra-DI-che',cat:'piante'},
+  {it:'foglia',ur:'پتہ',en:'leaf',p:'FO-lya',cat:'piante'},
+  {it:'fiore',ur:'پھول',en:'flower',p:'FYO-re',cat:'piante'},
+  {it:'frutto',ur:'پھل',en:'fruit',p:'FRUT-to',cat:'piante'},
+  {it:'verdura / ortaggio',ur:'سبزی',en:'vegetable',p:'ver-DU-ra',cat:'piante'},
+  {it:'grano / frumento',ur:'گندم',en:'wheat',p:'GRA-no',cat:'piante'},
+  {it:'mais / granoturco',ur:'مکئی',en:'corn / maize',p:'MA-is',cat:'piante'},
+  {it:'riso',ur:'چاول',en:'rice',p:'RI-so',cat:'piante'},
+  {it:'uva',ur:'انگور',en:'grapes',p:'U-va',cat:'piante'},
+  {it:'oliva',ur:'زیتون',en:'olive',p:'o-LI-va',cat:'piante'},
+  {it:'mela',ur:'سیب',en:'apple',p:'ME-la',cat:'piante'},
+  {it:'pomodoro',ur:'ٹماٹر',en:'tomato',p:'po-mo-DO-ro',cat:'piante'},
+  {it:'bestiame',ur:'مویشی',en:'livestock',p:'bes-TYA-me',cat:'allevamento'},
+  {it:'stalla',ur:'باڑہ',en:'stable / barn',p:'STAL-la',cat:'allevamento'},
+  {it:'pascolo',ur:'چراگاہ',en:'pasture',p:'PAS-ko-lo',cat:'allevamento'},
+  {it:'mucca / vacca',ur:'گاے',en:'cow',p:'MUK-ka',cat:'allevamento'},
+  {it:'pecora',ur:'بھیڑ',en:'sheep',p:'PE-ko-ra',cat:'allevamento'},
+  {it:'capra',ur:'بکری',en:'goat',p:'KA-pra',cat:'allevamento'},
+  {it:'pollo / gallina',ur:'مرغی',en:'chicken / hen',p:'POL-lo',cat:'allevamento'},
+  {it:'latte',ur:'دودھ',en:'milk',p:'LAT-te',cat:'allevamento'},
+  {it:'allevamento',ur:'مویشی پالنا',en:'animal husbandry',p:'al-le-va-MEN-to',cat:'allevamento'},
+  {it:'maiale',ur:'سور',en:'pig',p:'ma-YA-le',cat:'allevamento'},
+  {it:'stagione',ur:'موسم',en:'season',p:'sta-JO-ne',cat:'stagioni'},
+  {it:'primavera',ur:'بہار',en:'spring',p:'pri-ma-VE-ra',cat:'stagioni'},
+  {it:'estate',ur:'گرمیوں',en:'summer',p:'es-TA-te',cat:'stagioni'},
+  {it:'autunno',ur:'خزاں',en:'autumn / fall',p:'au-TUN-no',cat:'stagioni'},
+  {it:'inverno',ur:'سردیوں',en:'winter',p:'in-VER-no',cat:'stagioni'},
+  {it:'pioggia',ur:'بارش',en:'rain',p:'PYOD-ja',cat:'stagioni'},
+  {it:'siccità',ur:'خشک سالی',en:'drought',p:'sik-ki-TA',cat:'stagioni'},
+  {it:'grandine',ur:'اولے',en:'hail',p:'GRAN-di-ne',cat:'stagioni'},
+  {it:'clima',ur:'آب و ہوا',en:'climate',p:'KLI-ma',cat:'stagioni'},
+  {it:'temperatura',ur:'درجہ حرارت',en:'temperature',p:'tem-pe-ra-TU-ra',cat:'stagioni'},
+  {it:'umidità',ur:'نمی',en:'humidity',p:'u-mi-di-TA',cat:'stagioni'},
+  {it:'vento',ur:'ہوا',en:'wind',p:'VEN-to',cat:'stagioni'},
+  {it:'nebbia',ur:'دھند',en:'fog',p:'NEB-bya',cat:'stagioni'},
+  {it:'gelo / gelata',ur:'پالا',en:'frost',p:'JE-lo',cat:'stagioni'},
+  {it:'alluvione',ur:'سیلاب',en:'flood',p:'al-lu-VYO-ne',cat:'ambiente'},
+  {it:'precipitazioni',ur:'بارش کی مقدار',en:'rainfall / precipitation',p:'pre-chi-pi-ta-TSYO-ni',cat:'stagioni'},
+  {it:'cambiamento climatico',ur:'موسمیاتی تبدیلی',en:'climate change',p:'kam-bya-MEN-to kli-MA-ti-ko',cat:'ambiente'},
+  {it:'erosione del suolo',ur:'مٹی کا بہاؤ',en:'soil erosion',p:'e-ro-ZYO-ne',cat:'ambiente'},
+  {it:'inquinamento',ur:'آلودگی',en:'pollution',p:'in-kwi-na-MEN-to',cat:'ambiente'},
+  {it:'sostenibilità',ur:'پائیداری',en:'sustainability',p:'sos-te-ni-bi-li-TA',cat:'ambiente'},
+  {it:'pannello solare',ur:'شمسی پینل',en:'solar panel',p:'pan-NEL-lo so-LA-re',cat:'ambiente'},
+  {it:'energia rinnovabile',ur:'قابل تجدید توانائی',en:'renewable energy',p:'e-ner-JI-a rin-no-VA-bi-le',cat:'ambiente'},
+  {it:'semenzaio',ur:'نرسری',en:'seedbed / nursery',p:'se-men-DZA-yo',cat:'terra'},
+  {it:'trapianto',ur:'پودوں کی منتقلی',en:'transplanting',p:'tra-PYAN-to',cat:'terra'},
+  {it:'humus',ur:'ہیومس',en:'humus',p:'U-mus',cat:'terra'},
+  {it:'pH del suolo',ur:'مٹی کا پی ایچ',en:'soil pH',p:'pi-ak-ka del SWO-lo',cat:'terra'},
+  {it:'ammendante',ur:'مٹی درست کرنے والا',en:'soil amendment',p:'am-men-DAN-te',cat:'terra'},
+  {it:'lavorazione del suolo',ur:'مٹی کی کاشت',en:'soil tillage',p:'la-vo-ra-TSYO-ne',cat:'terra'},
+  {it:'copertura del suolo / pacciamatura',ur:'مٹی ڈھکنا',en:'mulching / soil cover',p:'ko-per-TU-ra',cat:'terra'},
+  {it:'coltura protetta',ur:'محفوظ کاشت',en:'protected cultivation',p:'kol-TU-ra pro-TET-ta',cat:'terra'},
+  {it:'coltura in piena aria',ur:'کھلے میں کاشت',en:'open-field cultivation',p:'kol-TU-ra in PYE-na',cat:'terra'},
+  {it:'irrigazione a goccia',ur:'قطرہ قطرہ آب پاشی',en:'drip irrigation',p:'ir-ri-ga-TSYO-ne a GOT-cha',cat:'terra'},
+  {it:'irrigazione per aspersione',ur:'چھڑکاؤ آب پاشی',en:'sprinkler irrigation',p:'as-per-TSYO-ne',cat:'terra'},
+  {it:'malerba / erbaccia',ur:'جنگلی گھاس',en:'weed',p:'ma-LER-ba',cat:'terra'},
+  {it:'diserbo',ur:'جڑی بوٹیاں ہٹانا',en:'weeding',p:'di-SER-bo',cat:'terra'},
+  {it:'parassita',ur:'پرجیوی',en:'parasite / pest',p:'pa-ras-SI-ta',cat:'terra'},
+  {it:'fungo / micosi',ur:'پھپھوندی',en:'fungus / mould',p:'FUN-go',cat:'terra'},
+  {it:'insetticida',ur:'حشرہ کش دوا',en:'insecticide',p:'in-set-ti-CHI-da',cat:'terra'},
+  {it:'fungicida',ur:'پھپھوندی کش دوا',en:'fungicide',p:'fun-ji-CHI-da',cat:'terra'},
+  {it:'biodiversità',ur:'حیاتیاتی تنوع',en:'biodiversity',p:'bio-di-ver-si-TA',cat:'ambiente'},
+  {it:'agriturismo',ur:'زرعی سیاحت',en:'agritourism',p:'a-gri-tu-RIZ-mo',cat:'ambiente'},
+  {it:'filiera agroalimentare',ur:'زرعی غذائی سلسلہ',en:'food supply chain',p:'fi-LYE-ra',cat:'ambiente'},
+  {it:'cooperativa agricola',ur:'زرعی تعاونی',en:'agricultural cooperative',p:'ko-o-pe-ra-TI-va',cat:'ambiente'},
+  {it:'certificazione',ur:'سرٹیفکیٹ',en:'certification',p:'cher-ti-fi-ka-TSYO-ne',cat:'ambiente'},
+  {it:'DOP (denominazione di origine)',ur:'اصل مقام کا نام',en:'protected designation of origin',p:'di-o-pi',cat:'ambiente'},
+  {it:'IGP (indicazione geografica)',ur:'جغرافیائی نشان',en:'protected geographical indication',p:'i-ji-pi',cat:'ambiente'},
+  {it:'catasto agrario',ur:'زرعی رجسٹر',en:'land registry',p:'ka-TAS-to',cat:'ambiente'},
+  {it:'concimazione',ur:'کھادکاری',en:'fertilization',p:'kon-chi-ma-TSYO-ne',cat:'terra'},
+  {it:'seminatrice',ur:'بوائی مشین',en:'seeder / planter',p:'se-mi-na-TRI-che',cat:'macchine'},
+  {it:'irroratrice / atomizzatore',ur:'چھڑکاؤ مشین',en:'sprayer',p:'ir-ro-ra-TRI-che',cat:'macchine'},
+  {it:'ranghinatore / andanatore',ur:'گھاس جمع کرنے والی مشین',en:'hay rake / tedder',p:'ran-gi-na-TO-re',cat:'macchine'},
+  {it:'imballatrice',ur:'گانٹھ بنانے والی مشین',en:'baler',p:'im-bal-la-TRI-che',cat:'macchine'},
+  {it:'rimorchio',ur:'ٹریلر',en:'trailer',p:'ri-MOR-kyo',cat:'macchine'},
+  {it:'motocoltivatore',ur:'چھوٹا ٹریکٹر',en:'walk-behind tractor / rotavator',p:'mo-to-kol-ti-va-TO-re',cat:'macchine'},
+  {it:'spandiconcime',ur:'کھاد پھیلانے والی مشین',en:'fertilizer spreader',p:'span-di-KON-chi-me',cat:'macchine'},
+  {it:'trinciatrice',ur:'کاٹنے والی مشین',en:'mulcher / chopper',p:'trin-cha-TRI-che',cat:'macchine'},
+  {it:'fresa / fresatrice',ur:'زمین کھودنے والی مشین',en:'rotary tiller / hoe',p:'FRE-za',cat:'macchine'},
+  {it:'cisterna',ur:'پانی کی ٹنکی',en:'cistern / water tank',p:'chis-TER-na',cat:'macchine'},
+  {it:'frantoio',ur:'زیتون کا تیل نکالنے کی مشین',en:'olive press / mill',p:'fran-TO-yo',cat:'macchine'},
+  {it:'vendemmiatrice',ur:'انگور توڑنے والی مشین',en:'grape harvester',p:'ven-dem-mya-TRI-che',cat:'macchine'},
+  {it:'escavatore',ur:'کھدائی مشین',en:'excavator',p:'es-ka-va-TO-re',cat:'macchine'},
+  {it:'fusto',ur:'تنا',en:'stem / trunk',p:'FUS-to',cat:'piante'},
+  {it:'ramo',ur:'شاخ',en:'branch',p:'RA-mo',cat:'piante'},
+  {it:'gemma / bocciolo',ur:'کلی',en:'bud',p:'GEM-ma',cat:'piante'},
+  {it:'corteccia',ur:'چھال',en:'bark',p:'kor-TET-cha',cat:'piante'},
+  {it:'linfa',ur:'رس / رطوبت',en:'sap',p:'LIN-fa',cat:'piante'},
+  {it:'polpa',ur:'گودا',en:'pulp / flesh',p:'POL-pa',cat:'piante'},
+  {it:'nocciolo / osso del frutto',ur:'گٹھلی',en:'stone / pit',p:'NOT-cho-lo',cat:'piante'},
+  {it:'buccia / scorza',ur:'چھلکا',en:'peel / skin / rind',p:'BUT-cha',cat:'piante'},
+  {it:'arancia',ur:'نارنگی',en:'orange',p:'a-RAN-cha',cat:'piante'},
+  {it:'limone',ur:'لیموں',en:'lemon',p:'li-MO-ne',cat:'piante'},
+  {it:'pera',ur:'ناشپاتی',en:'pear',p:'PE-ra',cat:'piante'},
+  {it:'ciliegia',ur:'چیری',en:'cherry',p:'chi-LYE-ja',cat:'piante'},
+  {it:'fragola',ur:'اسٹرابیری',en:'strawberry',p:'FRA-go-la',cat:'piante'},
+  {it:'fico',ur:'انجیر',en:'fig',p:'FI-ko',cat:'piante'},
+  {it:'mandorla',ur:'بادام',en:'almond',p:'MAN-dor-la',cat:'piante'},
+  {it:'noce',ur:'اخروٹ',en:'walnut',p:'NO-che',cat:'piante'},
+  {it:'olivo',ur:'زیتون کا درخت',en:'olive tree',p:'o-LI-vo',cat:'piante'},
+  {it:'erba medica / erba alfafa',ur:'الفلفا',en:'alfalfa / lucerne',p:'ER-ba ME-di-ka',cat:'piante'},
+  {it:'sorgo',ur:'جوار',en:'sorghum',p:'SOR-go',cat:'piante'},
+  {it:'avena',ur:'جئی',en:'oats',p:'a-VE-na',cat:'piante'},
+  {it:'orzo',ur:'جو',en:'barley',p:'OR-dzo',cat:'piante'},
+  {it:'girasole',ur:'سورج مکھی',en:'sunflower',p:'ji-ra-SO-le',cat:'piante'},
+  {it:'colza / ravizzone',ur:'کولزا',en:'rapeseed / canola',p:'KOL-dza',cat:'piante'},
+  {it:'barbabietola da zucchero',ur:'چقندر',en:'sugar beet',p:'bar-ba-BYE-to-la',cat:'piante'},
+  {it:'patata',ur:'آلو',en:'potato',p:'pa-TA-ta',cat:'piante'},
+  {it:'cipolla',ur:'پیاز',en:'onion',p:'chi-POL-la',cat:'piante'},
+  {it:'aglio',ur:'لہسن',en:'garlic',p:'A-lyo',cat:'piante'},
+  {it:'carota',ur:'گاجر',en:'carrot',p:'ka-RO-ta',cat:'piante'},
+  {it:'insalata / lattuga',ur:'سلاد پتہ',en:'lettuce / salad',p:'in-sa-LA-ta',cat:'piante'},
+  {it:'spinaci',ur:'پالک',en:'spinach',p:'spi-NA-chi',cat:'piante'},
+  {it:'zucca',ur:'کدو',en:'pumpkin / squash',p:'DZUK-ka',cat:'piante'},
+  {it:'melone',ur:'خربوزہ',en:'melon',p:'me-LO-ne',cat:'piante'},
+  {it:'cocomero / anguria',ur:'تربوز',en:'watermelon',p:'ko-KO-me-ro',cat:'piante'},
+  {it:'peperone',ur:'شملہ مرچ',en:'bell pepper',p:'pe-pe-RO-ne',cat:'piante'},
+  {it:'melanzana',ur:'بینگن',en:'aubergine / eggplant',p:'me-lan-DZA-na',cat:'piante'},
+  {it:'zucchino',ur:'کوارگا',en:'courgette / zucchini',p:'dzuk-KI-no',cat:'piante'},
+  {it:'fagiolo',ur:'لوبیا',en:'bean',p:'fa-JO-lo',cat:'piante'},
+  {it:'pisello',ur:'مٹر',en:'pea',p:'pi-ZEL-lo',cat:'piante'},
+  {it:'mangime',ur:'چارہ / دانہ',en:'animal feed',p:'man-JI-me',cat:'allevamento'},
+  {it:'foraggio',ur:'چارہ',en:'fodder',p:'fo-RA-djo',cat:'allevamento'},
+  {it:'fieno',ur:'خشک گھاس',en:'hay',p:'FYE-no',cat:'allevamento'},
+  {it:'insilato / silaggio',ur:'سائلیج',en:'silage',p:'in-si-LA-to',cat:'allevamento'},
+  {it:'mungitura',ur:'دودھ دوہنا',en:'milking',p:'mun-ji-TU-ra',cat:'allevamento'},
+  {it:'veterinario',ur:'جانوروں کا ڈاکٹر',en:'veterinarian',p:'ve-te-ri-NA-ryo',cat:'allevamento'},
+  {it:'vaccinazione',ur:'ٹیکہ',en:'vaccination',p:'vat-chi-na-TSYO-ne',cat:'allevamento'},
+  {it:'benessere animale',ur:'جانوروں کی بہبود',en:'animal welfare',p:'be-NES-se-re a-ni-MA-le',cat:'allevamento'},
+  {it:'apicoltura',ur:'شہد کی مکھی پالنا',en:'beekeeping',p:'a-pi-kol-TU-ra',cat:'allevamento'},
+  {it:'ape',ur:'شہد کی مکھی',en:'bee',p:'A-pe',cat:'allevamento'},
+  {it:'miele',ur:'شہد',en:'honey',p:'MYE-le',cat:'allevamento'},
+  {it:'toro',ur:'بیل',en:'bull',p:'TO-ro',cat:'allevamento'},
+  {it:'montone',ur:'مینڈھا',en:'ram',p:'mon-TO-ne',cat:'allevamento'},
+  {it:'coniglio',ur:'خرگوش',en:'rabbit',p:'ko-NI-lyo',cat:'allevamento'},
+  {it:'acquacoltura',ur:'آبی جاندار پالنا',en:'aquaculture',p:'ak-kwa-kol-TU-ra',cat:'allevamento'},
+  {it:'ovaiola',ur:'انڈے دینے والی مرغی',en:'laying hen',p:'o-va-YO-la',cat:'allevamento'},
+  {it:'fecondazione artificiale',ur:'مصنوعی افزائش نسل',en:'artificial insemination',p:'fe-kon-da-TSYO-ne',cat:'allevamento'},
+];
+let currentFilter='';
+const catMeta={
+  terra:['cat-terra','Terra &amp; Coltura'],
+  macchine:['cat-green','Macchine'],
+  piante:['cat-gold','Piante &amp; Frutti'],
+  allevamento:['cat-purple','Allevamento'],
+  stagioni:['cat-blue','Stagioni'],
+  ambiente:['cat-green','Ambiente']
+};
+function renderGloss(items){
+  const grid=document.getElementById('glossGrid');
+  const cnt=document.getElementById('glossCount');
+  if(!items.length){grid.innerHTML='<div class="no-results">Nessun termine trovato / کوئی نتیجہ نہیں ملا</div>';cnt.textContent='';return;}
+  cnt.textContent=items.length+' termini / اصطلاحات';
+  grid.innerHTML=items.map(t=>{
+    const[cls,lab]=catMeta[t.cat]||['cat-terra',t.cat];
+    return'<div class="gloss-card"><div class="gloss-cat '+cls+'">'+lab+'</div><div class="gloss-it">'+t.it+'</div><div class="gloss-pronun">['+t.p+']</div><div class="gloss-en">'+t.en+'</div><div class="gloss-ur">'+t.ur+'</div></div>';
+  }).join('');
+}
+function filterGloss(){
+  const q=document.getElementById('glossSearch').value.toLowerCase().trim();
+  let items=currentFilter?glossData.filter(t=>t.cat===currentFilter):glossData;
+  if(q)items=items.filter(t=>t.it.toLowerCase().includes(q)||t.ur.includes(q)||t.en.toLowerCase().includes(q));
+  renderGloss(items);
+}
+function setFilter(cat,btn){
+  currentFilter=cat;
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  filterGloss();
+}
+renderGloss(glossData);
+</script>
+</body>
+</html>
