@@ -104,6 +104,52 @@ footer strong{color:rgba(255,255,255,.85)}
   .tense-header{flex-direction:column}.tab-btn{padding:.75rem .8rem;font-size:.9rem}
 }
 @media(max-width:400px){.gloss-grid{grid-template-columns:1fr}}
+
+/* ANALISI LOGICA */
+.al-grid{display:grid;gap:1.2rem}
+.al-card{background:var(--white);border-radius:var(--radius);border:1px solid var(--border);box-shadow:var(--shadow);overflow:hidden}
+.al-header{display:flex;align-items:flex-start;justify-content:space-between;gap:.5rem;padding:.9rem 1.2rem}
+.al-header.sogg{background:linear-gradient(90deg,#e3f2e3,#f0faf0)}
+.al-header.pred{background:linear-gradient(90deg,#e3ecf8,#f0f5fa)}
+.al-header.comp{background:linear-gradient(90deg,#f8f0e3,#faf5f0)}
+.al-header.attr{background:linear-gradient(90deg,#f3e3f8,#f8f0fa)}
+.al-name{font-family:'Lora',serif;font-size:1.1rem;font-weight:700;color:var(--green-dark)}
+.al-sub{font-size:.75rem;color:var(--muted);margin-top:.1rem}
+.al-ur-name{font-family:'Noto Nastaliq Urdu',serif;direction:rtl;text-align:right;font-size:1.1rem;color:var(--urdu-border);line-height:2}
+.al-body{padding:1rem 1.2rem}
+.al-def{font-size:.92rem;color:var(--ink2);margin-bottom:.5rem;line-height:1.6}
+.al-def-ur{font-family:'Noto Nastaliq Urdu',serif;direction:rtl;text-align:right;font-size:1rem;color:var(--ink2);background:var(--urdu-bg);border-radius:6px;padding:.4rem .8rem;margin-bottom:.8rem;line-height:2;border-right:2px solid var(--urdu-border)}
+.al-domanda{font-size:.78rem;background:var(--gold-light);border:1px solid var(--gold);border-radius:6px;padding:.35rem .75rem;margin-bottom:.8rem;color:#6b5a1a;display:inline-block}
+.al-domanda-ur{font-family:'Noto Nastaliq Urdu',serif;direction:rtl;font-size:.95rem}
+.al-examples{display:grid;gap:.5rem}
+.al-ex{background:var(--cream);border-radius:8px;padding:.65rem .9rem;font-size:.88rem}
+.al-ex-it{line-height:1.7;margin-bottom:.3rem}
+.al-ex-ur{font-family:'Noto Nastaliq Urdu',serif;direction:rtl;text-align:right;font-size:1rem;color:var(--ink);line-height:2;border-top:1px dashed var(--border);padding-top:.3rem;margin-top:.3rem}
+.al-ex mark{background:#fffde3;border-radius:3px;padding:0 2px;font-weight:600;color:#5a4a00}
+.al-ex mark.sogg{background:#d4edda;color:#155724}
+.al-ex mark.pred{background:#cce5ff;color:#004085}
+.al-ex mark.comp{background:#ffe0cc;color:#7a3000}
+.al-ex mark.attr{background:#e8d5f5;color:#4a1a6b}
+.al-ex mark.app{background:#ffd6d6;color:#6b0000}
+.al-legend{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.5rem;padding:.75rem 1rem;background:var(--white);border:1px solid var(--border);border-radius:var(--radius)}
+.al-legend-title{font-size:.8rem;font-weight:600;color:var(--muted);width:100%;margin-bottom:.25rem;text-transform:uppercase;letter-spacing:.05em}
+.leg-item{display:flex;align-items:center;gap:.3rem;font-size:.78rem;color:var(--ink2)}
+.leg-dot{width:12px;height:12px;border-radius:3px;flex-shrink:0}
+.leg-sogg{background:#d4edda}
+.leg-pred{background:#cce5ff}
+.leg-comp{background:#ffe0cc}
+.leg-attr{background:#e8d5f5}
+.al-full-ex{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1.2rem;margin-top:1.5rem;box-shadow:var(--shadow)}
+.al-full-title{font-family:'Lora',serif;font-size:1.1rem;color:var(--green-dark);margin-bottom:.5rem}
+.al-full-ur{font-family:'Noto Nastaliq Urdu',serif;direction:rtl;font-size:1rem;color:var(--muted);margin-bottom:.8rem;text-align:right;line-height:2}
+.al-sentence{font-size:1.05rem;line-height:2;margin-bottom:.75rem}
+.al-table{width:100%;border-collapse:collapse;font-size:.88rem}
+.al-table th{background:var(--green-light);color:var(--green-dark);padding:.45rem .7rem;text-align:left;font-size:.78rem;text-transform:uppercase;letter-spacing:.04em}
+.al-table td{padding:.5rem .7rem;border-bottom:1px solid var(--cream2);vertical-align:middle}
+.al-table tr:last-child td{border-bottom:none}
+.al-table tr:hover td{background:var(--cream)}
+.al-table .ur-cell{font-family:'Noto Nastaliq Urdu',serif;direction:rtl;text-align:right;font-size:1rem;line-height:2}
+.comp-tipo{font-size:.75rem;background:var(--cream2);border-radius:10px;padding:.1rem .5rem;color:var(--muted);margin-left:.4rem}
 </style>
 </head>
 <body>
@@ -127,6 +173,7 @@ footer strong{color:rgba(255,255,255,.85)}
   <div class="tabs">
     <button class="tab-btn active" onclick="showPanel('grammatica',this)">&#128214; Grammatica</button>
     <button class="tab-btn" onclick="showPanel('glossario',this)">&#127807; Glossario Agrario</button>
+    <button class="tab-btn" onclick="showPanel('analisi',this)">&#128270; Analisi Logica</button>
   </div>
 </nav>
 
@@ -340,6 +387,413 @@ footer strong{color:rgba(255,255,255,.85)}
   </div>
   <div class="gloss-count" id="glossCount"></div>
   <div class="gloss-grid" id="glossGrid"></div>
+</div>
+</div>
+
+<div id="analisi" class="panel">
+<div class="container">
+  <h2 class="section-title">Analisi Logica</h2>
+  <span class="section-urdu">منطقی تجزیہ — جملے کی ساخت</span>
+  <p style="font-size:.92rem;color:var(--ink2);margin-bottom:1rem">L'analisi logica studia la <strong>funzione</strong> di ogni parola o gruppo di parole nella frase.</p>
+  <p style="font-family:'Noto Nastaliq Urdu',serif;direction:rtl;text-align:right;font-size:1rem;color:var(--urdu-border);line-height:2;margin-bottom:1.5rem">منطقی تجزیہ میں ہم جملے کے ہر لفظ کا <strong>کردار</strong> دیکھتے ہیں۔</p>
+
+  <!-- LEGENDA -->
+  <div class="al-legend">
+    <div class="al-legend-title">Legenda colori / رنگوں کی وضاحت</div>
+    <div class="leg-item"><div class="leg-dot leg-sogg"></div> Soggetto</div>
+    <div class="leg-item"><div class="leg-dot leg-pred"></div> Predicato</div>
+    <div class="leg-item"><div class="leg-dot leg-comp"></div> Complemento</div>
+    <div class="leg-item"><div class="leg-dot leg-attr"></div> Attributo / Apposizione</div>
+  </div>
+
+  <div class="al-grid">
+
+    <!-- SOGGETTO -->
+    <div class="al-card">
+      <div class="al-header sogg">
+        <div><div class="al-name">Soggetto</div><div class="al-sub">chi compie o subisce l'azione</div></div>
+        <div class="al-ur-name">فاعل</div>
+      </div>
+      <div class="al-body">
+        <div class="al-def">La persona, l'animale o la cosa che <strong>compie</strong> l'azione del verbo (o di cui si dice qualcosa).</div>
+        <div class="al-def-ur">وہ شخص، جانور یا چیز جو فعل کا <strong>کام</strong> کرے یا جس کے بارے میں کچھ کہا جائے۔</div>
+        <div class="al-domanda">&#10067; Domanda: <em>Chi? / Che cosa?</em> &nbsp;&nbsp; <span class="al-domanda-ur">کون؟ / کیا چیز؟</span></div>
+        <div class="al-examples">
+          <div class="al-ex">
+            <div class="al-ex-it"><mark class="sogg">Il contadino</mark> semina il grano.</div>
+            <div class="al-ex-ur"><mark class="sogg">کسان</mark> گندم بوتا ہے۔</div>
+          </div>
+          <div class="al-ex">
+            <div class="al-ex-it"><mark class="sogg">Le pecore</mark> pascolano nel prato.</div>
+            <div class="al-ex-ur"><mark class="sogg">بھیڑیں</mark> میدان میں چرتی ہیں۔</div>
+          </div>
+          <div class="al-ex">
+            <div class="al-ex-it"><mark class="sogg">Il trattore</mark> è uno strumento agricolo.</div>
+            <div class="al-ex-ur"><mark class="sogg">ٹریکٹر</mark> ایک زرعی آلہ ہے۔</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PREDICATO VERBALE -->
+    <div class="al-card">
+      <div class="al-header pred">
+        <div><div class="al-name">Predicato Verbale</div><div class="al-sub">azione compiuta dal soggetto</div></div>
+        <div class="al-ur-name">فعلی خبر</div>
+      </div>
+      <div class="al-body">
+        <div class="al-def">Un verbo che esprime un'<strong>azione</strong> o un <strong>evento</strong>. Non è mai il verbo <em>essere</em> usato come copula.</div>
+        <div class="al-def-ur">وہ فعل جو کوئی <strong>عمل</strong> یا <strong>واقعہ</strong> ظاہر کرے۔ <em>essere</em> یہاں ربط کا کام نہیں کرتا۔</div>
+        <div class="al-domanda">&#10067; Domanda: <em>Cosa fa il soggetto?</em> &nbsp;&nbsp; <span class="al-domanda-ur">فاعل کیا کرتا ہے؟</span></div>
+        <div class="al-examples">
+          <div class="al-ex">
+            <div class="al-ex-it">Il contadino <mark class="pred">semina</mark> il grano ogni primavera.</div>
+            <div class="al-ex-ur">کسان ہر بہار گندم <mark class="pred">بوتا ہے</mark>۔</div>
+          </div>
+          <div class="al-ex">
+            <div class="al-ex-it">Noi <mark class="pred">raccogliamo</mark> le olive in autunno.</div>
+            <div class="al-ex-ur">ہم خزاں میں زیتون <mark class="pred">توڑتے ہیں</mark>۔</div>
+          </div>
+          <div class="al-ex">
+            <div class="al-ex-it">Il trattore <mark class="pred">ha arato</mark> il campo ieri.</div>
+            <div class="al-ex-ur">ٹریکٹر نے کل کھیت <mark class="pred">جوتا</mark>۔</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PREDICATO NOMINALE -->
+    <div class="al-card">
+      <div class="al-header pred">
+        <div><div class="al-name">Predicato Nominale</div><div class="al-sub">essere + nome/aggettivo</div></div>
+        <div class="al-ur-name">اسمی خبر</div>
+      </div>
+      <div class="al-body">
+        <div class="al-def">È formato da <strong><em>essere</em></strong> (copula) + un <strong>nome</strong> o <strong>aggettivo</strong> (parte nominale) che descrive il soggetto.</div>
+        <div class="al-def-ur"><strong><em>essere</em></strong> (ربط) + <strong>اسم</strong> یا <strong>صفت</strong> جو فاعل کی تعریف کرے۔</div>
+        <div class="al-domanda">&#10067; Domanda: <em>Come/cosa è il soggetto?</em> &nbsp;&nbsp; <span class="al-domanda-ur">فاعل کیسا ہے؟</span></div>
+        <div class="al-examples">
+          <div class="al-ex">
+            <div class="al-ex-it">Il terreno <mark class="pred">è fertile</mark>.</div>
+            <div class="al-ex-ur">زمین <mark class="pred">زرخیز ہے</mark>۔</div>
+          </div>
+          <div class="al-ex">
+            <div class="al-ex-it">Il grano <mark class="pred">è una pianta cerealicola</mark>.</div>
+            <div class="al-ex-ur">گندم <mark class="pred">ایک اناج کا پودا ہے</mark>۔</div>
+          </div>
+          <div class="al-ex">
+            <div class="al-ex-it">L'irrigazione a goccia <mark class="pred">è molto efficiente</mark>.</div>
+            <div class="al-ex-ur">قطرہ قطرہ آب پاشی <mark class="pred">بہت مؤثر ہے</mark>۔</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMPLEMENTO OGGETTO -->
+    <div class="al-card">
+      <div class="al-header comp">
+        <div><div class="al-name">Complemento Oggetto</div><div class="al-sub">chi / cosa subisce l'azione</div></div>
+        <div class="al-ur-name">مفعول بہ</div>
+      </div>
+      <div class="al-body">
+        <div class="al-def">La persona o cosa su cui cade direttamente l'azione del verbo. Risponde a <em>chi?</em> o <em>che cosa?</em> <strong>senza</strong> preposizione.</div>
+        <div class="al-def-ur">وہ شخص یا چیز جس پر فعل کا عمل براہ راست پڑے۔ بغیر حرف جر کے آتا ہے۔</div>
+        <div class="al-domanda">&#10067; Domanda: <em>Chi? / Che cosa?</em> (senza preposizione) &nbsp;&nbsp; <span class="al-domanda-ur">کسے؟ / کیا؟</span></div>
+        <div class="al-examples">
+          <div class="al-ex">
+            <div class="al-ex-it">Il contadino semina <mark class="comp">il grano</mark>.</div>
+            <div class="al-ex-ur">کسان <mark class="comp">گندم</mark> بوتا ہے۔</div>
+          </div>
+          <div class="al-ex">
+            <div class="al-ex-it">Abbiamo usato <mark class="comp">il fertilizzante biologico</mark>.</div>
+            <div class="al-ex-ur">ہم نے <mark class="comp">نامیاتی کھاد</mark> استعمال کی۔</div>
+          </div>
+          <div class="al-ex">
+            <div class="al-ex-it">Il veterinario visita <mark class="comp">le mucche</mark> ogni mese.</div>
+            <div class="al-ex-ur">جانوروں کا ڈاکٹر ہر مہینے <mark class="comp">گائیوں</mark> کا معائنہ کرتا ہے۔</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMPLEMENTO DI SPECIFICAZIONE -->
+    <div class="al-card">
+      <div class="al-header comp">
+        <div><div class="al-name">Complemento di Specificazione</div><div class="al-sub">di + nome</div></div>
+        <div class="al-ur-name">اضافت / تخصیص</div>
+      </div>
+      <div class="al-body">
+        <div class="al-def">Introdotto dalla preposizione <strong><em>di</em></strong>, specifica o limita il significato di un altro nome.</div>
+        <div class="al-def-ur">حرف جر <strong><em>di</em></strong> کے ساتھ آتا ہے، کسی اسم کو محدود کرتا ہے۔</div>
+        <div class="al-domanda">&#10067; Domanda: <em>Di chi? / Di che cosa?</em> &nbsp;&nbsp; <span class="al-domanda-ur">کس کا؟ / کس چیز کا؟</span></div>
+        <div class="al-examples">
+          <div class="al-ex">
+            <div class="al-ex-it">La produzione <mark class="comp">del grano</mark> è aumentata.</div>
+            <div class="al-ex-ur"><mark class="comp">گندم کی</mark> پیداوار بڑھ گئی ہے۔</div>
+          </div>
+          <div class="al-ex">
+            <div class="al-ex-it">Il frutto <mark class="comp">dell'olivo</mark> si chiama oliva.</div>
+            <div class="al-ex-ur"><mark class="comp">زیتون کے</mark> درخت کا پھل زیتون کہلاتا ہے۔</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMPLEMENTO DI TERMINE -->
+    <div class="al-card">
+      <div class="al-header comp">
+        <div><div class="al-name">Complemento di Termine</div><div class="al-sub">a / per + persona</div></div>
+        <div class="al-ur-name">مفعول لہ / مفعول غیر مباشر</div>
+      </div>
+      <div class="al-body">
+        <div class="al-def">Indica a <strong>chi</strong> o <strong>per chi</strong> viene compiuta l'azione. Introdotto da <em>a</em> o <em>per</em>.</div>
+        <div class="al-def-ur">بتاتا ہے کہ فعل کا عمل <strong>کس کے لیے</strong> کیا گیا۔ <em>a</em> یا <em>per</em> کے ساتھ آتا ہے۔</div>
+        <div class="al-domanda">&#10067; Domanda: <em>A chi? / Per chi?</em> &nbsp;&nbsp; <span class="al-domanda-ur">کسے؟ / کس کے لیے؟</span></div>
+        <div class="al-examples">
+          <div class="al-ex">
+            <div class="al-ex-it">Il contadino vende le mele <mark class="comp">al mercato</mark>.</div>
+            <div class="al-ex-ur">کسان <mark class="comp">بازار کو</mark> سیب بیچتا ہے۔</div>
+          </div>
+          <div class="al-ex">
+            <div class="al-ex-it">Ho dato il foraggio <mark class="comp">alle mucche</mark>.</div>
+            <div class="al-ex-ur">میں نے <mark class="comp">گائیوں کو</mark> چارہ دیا۔</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMPLEMENTO DI LUOGO -->
+    <div class="al-card">
+      <div class="al-header comp">
+        <div><div class="al-name">Complemento di Luogo</div><div class="al-sub">stato, moto a/da/per luogo</div></div>
+        <div class="al-ur-name">ظرف مکاں</div>
+      </div>
+      <div class="al-body">
+        <div class="al-def">Indica il <strong>luogo</strong> dove avviene l'azione (stato in luogo), verso cui si va (moto a luogo), da cui si parte (moto da luogo) o attraverso cui si passa (moto per luogo).</div>
+        <div class="al-def-ur">وہ جگہ جہاں کام ہو، جدھر جائیں، جہاں سے آئیں یا جہاں سے گزریں۔</div>
+        <div class="al-domanda">&#10067; Domanda: <em>Dove? Da dove? Verso dove?</em> &nbsp;&nbsp; <span class="al-domanda-ur">کہاں؟ کہاں سے؟ کدھر؟</span></div>
+        <div class="al-examples">
+          <div class="al-ex">
+            <div class="al-ex-it">Le pecore pascolano <mark class="comp">nel prato</mark>. <span style="font-size:.8rem;color:var(--muted)">(stato in luogo)</span></div>
+            <div class="al-ex-ur">بھیڑیں <mark class="comp">میدان میں</mark> چرتی ہیں۔</div>
+          </div>
+          <div class="al-ex">
+            <div class="al-ex-it">Il contadino va <mark class="comp">al campo</mark>. <span style="font-size:.8rem;color:var(--muted)">(moto a luogo)</span></div>
+            <div class="al-ex-ur">کسان <mark class="comp">کھیت کی طرف</mark> جاتا ہے۔</div>
+          </div>
+          <div class="al-ex">
+            <div class="al-ex-it">L'acqua arriva <mark class="comp">dalla sorgente</mark>. <span style="font-size:.8rem;color:var(--muted)">(moto da luogo)</span></div>
+            <div class="al-ex-ur">پانی <mark class="comp">چشمے سے</mark> آتا ہے۔</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMPLEMENTO DI TEMPO -->
+    <div class="al-card">
+      <div class="al-header comp">
+        <div><div class="al-name">Complemento di Tempo</div><div class="al-sub">quando / per quanto</div></div>
+        <div class="al-ur-name">ظرف زماں</div>
+      </div>
+      <div class="al-body">
+        <div class="al-def">Indica <strong>quando</strong> avviene l'azione (tempo determinato) o <strong>per quanto tempo</strong> dura (tempo continuato).</div>
+        <div class="al-def-ur">بتاتا ہے کہ فعل <strong>کب</strong> ہوا یا <strong>کتنی دیر</strong> جاری رہا۔</div>
+        <div class="al-domanda">&#10067; Domanda: <em>Quando? Per quanto tempo?</em> &nbsp;&nbsp; <span class="al-domanda-ur">کب؟ کتنی دیر تک؟</span></div>
+        <div class="al-examples">
+          <div class="al-ex">
+            <div class="al-ex-it">Seminano il grano <mark class="comp">in primavera</mark>.</div>
+            <div class="al-ex-ur"><mark class="comp">بہار میں</mark> گندم بوتے ہیں۔</div>
+          </div>
+          <div class="al-ex">
+            <div class="al-ex-it">Ho lavorato <mark class="comp">per tre ore</mark> nel vigneto.</div>
+            <div class="al-ex-ur">میں نے انگور کے باغ میں <mark class="comp">تین گھنٹے</mark> کام کیا۔</div>
+          </div>
+          <div class="al-ex">
+            <div class="al-ex-it">Il raccolto avviene <mark class="comp">ogni autunno</mark>.</div>
+            <div class="al-ex-ur">فصل کی کٹائی <mark class="comp">ہر خزاں میں</mark> ہوتی ہے۔</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMPLEMENTO DI MODO -->
+    <div class="al-card">
+      <div class="al-header comp">
+        <div><div class="al-name">Complemento di Modo</div><div class="al-sub">come avviene l'azione</div></div>
+        <div class="al-ur-name">ظرف حال / طریقہ</div>
+      </div>
+      <div class="al-body">
+        <div class="al-def">Indica il <strong>modo</strong> in cui si svolge l'azione. Spesso introdotto da <em>con, in modo, a, di</em>.</div>
+        <div class="al-def-ur">بتاتا ہے کہ کام <strong>کس طرح</strong> ہوا۔ اکثر <em>con, in modo</em> کے ساتھ آتا ہے۔</div>
+        <div class="al-domanda">&#10067; Domanda: <em>Come? In che modo?</em> &nbsp;&nbsp; <span class="al-domanda-ur">کیسے؟ کس طرح؟</span></div>
+        <div class="al-examples">
+          <div class="al-ex">
+            <div class="al-ex-it">Il contadino lavora <mark class="comp">con dedizione</mark>.</div>
+            <div class="al-ex-ur">کسان <mark class="comp">لگن سے</mark> کام کرتا ہے۔</div>
+          </div>
+          <div class="al-ex">
+            <div class="al-ex-it">Annaffia le piante <mark class="comp">con cura</mark>.</div>
+            <div class="al-ex-ur">پودوں کو <mark class="comp">احتیاط سے</mark> پانی دیتا ہے۔</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMPLEMENTO DI CAUSA -->
+    <div class="al-card">
+      <div class="al-header comp">
+        <div><div class="al-name">Complemento di Causa</div><div class="al-sub">perché avviene</div></div>
+        <div class="al-ur-name">سبب / وجہ</div>
+      </div>
+      <div class="al-body">
+        <div class="al-def">Indica la <strong>causa</strong> o il <strong>motivo</strong> per cui avviene l'azione. Introdotto da <em>per, a causa di, da</em>.</div>
+        <div class="al-def-ur">فعل کی <strong>وجہ</strong> یا <strong>سبب</strong> بتاتا ہے۔ <em>per, a causa di</em> کے ساتھ آتا ہے۔</div>
+        <div class="al-domanda">&#10067; Domanda: <em>Perché? Per quale motivo?</em> &nbsp;&nbsp; <span class="al-domanda-ur">کیوں؟ کس وجہ سے؟</span></div>
+        <div class="al-examples">
+          <div class="al-ex">
+            <div class="al-ex-it">Le piante sono morte <mark class="comp">per la siccità</mark>.</div>
+            <div class="al-ex-ur">پودے <mark class="comp">خشک سالی کی وجہ سے</mark> مر گئے۔</div>
+          </div>
+          <div class="al-ex">
+            <div class="al-ex-it">Il raccolto è scarso <mark class="comp">a causa della grandine</mark>.</div>
+            <div class="al-ex-ur">فصل <mark class="comp">اولوں کی وجہ سے</mark> کم ہے۔</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMPLEMENTO DI MEZZO -->
+    <div class="al-card">
+      <div class="al-header comp">
+        <div><div class="al-name">Complemento di Mezzo</div><div class="al-sub">con quale strumento</div></div>
+        <div class="al-ur-name">آلہ / ذریعہ</div>
+      </div>
+      <div class="al-body">
+        <div class="al-def">Indica lo <strong>strumento</strong> o il <strong>mezzo</strong> con cui si compie l'azione. Introdotto da <em>con, per mezzo di, a</em>.</div>
+        <div class="al-def-ur">وہ <strong>آلہ</strong> یا <strong>ذریعہ</strong> جس سے کام کیا جائے۔ <em>con, a</em> کے ساتھ آتا ہے۔</div>
+        <div class="al-domanda">&#10067; Domanda: <em>Con che cosa? Per mezzo di che?</em> &nbsp;&nbsp; <span class="al-domanda-ur">کس چیز سے؟ کس ذریعے سے؟</span></div>
+        <div class="al-examples">
+          <div class="al-ex">
+            <div class="al-ex-it">Arare il campo <mark class="comp">con il trattore</mark>.</div>
+            <div class="al-ex-ur">کھیت کو <mark class="comp">ٹریکٹر سے</mark> جوتنا۔</div>
+          </div>
+          <div class="al-ex">
+            <div class="al-ex-it">Irrigano l'orto <mark class="comp">con la pompa</mark>.</div>
+            <div class="al-ex-ur">باغ کو <mark class="comp">پمپ سے</mark> پانی دیتے ہیں۔</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ATTRIBUTO -->
+    <div class="al-card">
+      <div class="al-header attr">
+        <div><div class="al-name">Attributo</div><div class="al-sub">aggettivo che accompagna un nome</div></div>
+        <div class="al-ur-name">صفت</div>
+      </div>
+      <div class="al-body">
+        <div class="al-def">Un <strong>aggettivo</strong> che qualifica direttamente un nome (senza verbo copula). Concorda in genere e numero con il nome.</div>
+        <div class="al-def-ur">وہ <strong>صفت</strong> جو کسی اسم کو براہ راست بیان کرے (بغیر فعل ربط)۔ اسم کے جنس اور تعداد کے مطابق ہوتی ہے۔</div>
+        <div class="al-domanda">&#10067; Domanda: <em>Che tipo di nome?</em> &nbsp;&nbsp; <span class="al-domanda-ur">کیسا اسم؟</span></div>
+        <div class="al-examples">
+          <div class="al-ex">
+            <div class="al-ex-it">Il <mark class="attr">fertile</mark> terreno produce molto grano.</div>
+            <div class="al-ex-ur"><mark class="attr">زرخیز</mark> زمین بہت گندم اگاتی ہے۔</div>
+          </div>
+          <div class="al-ex">
+            <div class="al-ex-it">Abbiamo comprato un <mark class="attr">nuovo</mark> trattore.</div>
+            <div class="al-ex-ur">ہم نے <mark class="attr">نیا</mark> ٹریکٹر خریدا۔</div>
+          </div>
+          <div class="al-ex">
+            <div class="al-ex-it">Le <mark class="attr">biologiche</mark> mele sono molto apprezzate.</div>
+            <div class="al-ex-ur"><mark class="attr">نامیاتی</mark> سیب بہت پسند کیے جاتے ہیں۔</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- APPOSIZIONE -->
+    <div class="al-card">
+      <div class="al-header attr">
+        <div><div class="al-name">Apposizione</div><div class="al-sub">nome che spiega un altro nome</div></div>
+        <div class="al-ur-name">ہم جنس بدل / توضیح</div>
+      </div>
+      <div class="al-body">
+        <div class="al-def">Un <strong>nome</strong> (o gruppo nominale) che si affianca a un altro nome per spiegarlo o identificarlo meglio, senza preposizione.</div>
+        <div class="al-def-ur">ایک <strong>اسم</strong> جو کسی دوسرے اسم کی وضاحت کرے، بغیر حرف جر کے۔</div>
+        <div class="al-domanda">&#10067; Domanda: <em>Chi è? Che cos'è?</em> &nbsp;&nbsp; <span class="al-domanda-ur">یہ کون ہے؟ یہ کیا ہے؟</span></div>
+        <div class="al-examples">
+          <div class="al-ex">
+            <div class="al-ex-it">Il grano, <mark class="app">una pianta cerealicola</mark>, è coltivato in tutto il mondo.</div>
+            <div class="al-ex-ur">گندم، <mark class="app">ایک اناجی پودا</mark>، دنیا بھر میں کاشت کی جاتی ہے۔</div>
+          </div>
+          <div class="al-ex">
+            <div class="al-ex-it">Il professor Rossi, <mark class="app">il nostro agronomo</mark>, ha visitato i campi.</div>
+            <div class="al-ex-ur">پروفیسر روسی، <mark class="app">ہمارے زراعت دان</mark>، نے کھیتوں کا دورہ کیا۔</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end al-grid -->
+
+  <!-- ESEMPIO COMPLETO DI ANALISI -->
+  <div class="al-full-ex">
+    <div class="al-full-title">&#128203; Esempio completo di analisi / مکمل جملے کا تجزیہ</div>
+    <div class="al-full-ur">ایک پورے جملے کا مثال کے طور پر تجزیہ</div>
+    <div class="al-sentence">
+      <mark class="sogg">Il giovane contadino</mark>
+      <mark class="pred">ha raccolto</mark>
+      <mark class="comp" style="background:#ffe0cc;color:#7a3000">le mele mature</mark>
+      <mark class="comp" style="background:#d6eaff;color:#003a70">nel frutteto</mark>
+      <mark class="comp" style="background:#fff3cc;color:#5a4400">questa mattina</mark>
+      <mark class="comp" style="background:#e0f0e0;color:#1a4a00">con grande cura</mark>.
+    </div>
+    <table class="al-table">
+      <thead>
+        <tr><th>Parola / gruppo</th><th>Funzione logica</th><th>اردو وضاحت</th><th style="text-align:right" class="ur-cell">اردو</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><mark class="sogg">Il giovane contadino</mark></td>
+          <td>Soggetto <span class="comp-tipo">+ attributo: giovane</span></td>
+          <td>فاعل + صفت</td>
+          <td class="ur-cell">نوجوان کسان</td>
+        </tr>
+        <tr>
+          <td><mark class="pred">ha raccolto</mark></td>
+          <td>Predicato verbale</td>
+          <td>فعلی خبر</td>
+          <td class="ur-cell">نے توڑا</td>
+        </tr>
+        <tr>
+          <td><mark class="comp" style="background:#ffe0cc;color:#7a3000">le mele mature</mark></td>
+          <td>Complemento oggetto <span class="comp-tipo">+ attributo: mature</span></td>
+          <td>مفعول بہ + صفت</td>
+          <td class="ur-cell">پکے سیب</td>
+        </tr>
+        <tr>
+          <td><mark class="comp" style="background:#d6eaff;color:#003a70">nel frutteto</mark></td>
+          <td>Complemento di luogo <span class="comp-tipo">stato in luogo</span></td>
+          <td>ظرف مکاں</td>
+          <td class="ur-cell">باغ میں</td>
+        </tr>
+        <tr>
+          <td><mark class="comp" style="background:#fff3cc;color:#5a4400">questa mattina</mark></td>
+          <td>Complemento di tempo <span class="comp-tipo">determinato</span></td>
+          <td>ظرف زماں</td>
+          <td class="ur-cell">آج صبح</td>
+        </tr>
+        <tr>
+          <td><mark class="comp" style="background:#e0f0e0;color:#1a4a00">con grande cura</mark></td>
+          <td>Complemento di modo</td>
+          <td>طریقہ / ظرف حال</td>
+          <td class="ur-cell">بڑی احتیاط سے</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
 </div>
 </div>
 
